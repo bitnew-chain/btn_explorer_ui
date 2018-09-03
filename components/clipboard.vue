@@ -41,17 +41,20 @@
           for(let i=0; i<allLink.length;i++) {
               allLink[i].onmouseover = function(){
                   let currentNextSibling = this.nextSibling;
-                  currentNextSibling.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAdJJREFUWAntmL9LAzEUx997rT+W+mMUB92c1NFJJ8FZBxV0dixUHQtW90Jxc9KlWP8Nty6iiM5OilNrxaGVyzMnnNZAL82ZO09Ilkvy3sv73PeF5DiAlDUMeLaOecTzWotC8BwBDwXzkZ8ED7XC+Jlp/CfQeuVlBYQ4BYYJ0wXC/AngsLY3XgrzUW24XWnNvHvimoGHVaONsSkUdYQ4sgqDyN0vIgAONsuNUvdcWJ+QeSHMwdQmefYRsNEdZwJFDDjZHfzbvtyUV0CwHBVKlth+uyiMRYaKBch/xahQsQFFhSKQxbZftO8VTZWKVaEAywQqESCT8iUG1C9UokD9QCUOpIP6E6AwKNwoNz15uVoDQ4Qbebs2/aT9NHkVT0v/qcA3G3RsPZlh3mStH58GMtCaMiYQYb4OKEwd3+YUcgrpFNDZiWP+HtIBqHa3qVVF1LFTSFVEHTuFVEXUcQoVYnkSpailUKEUqeOjOIV0BXEK/UOFEJ501EnZ5YH4KP/CYj2phLo8jFgnwkwRADs659jtiO2BbKZI57u5O0m1hojPsSftlUBuG5l/tZrP3X/dYzsnPNp8e10iELPAPNgr1ua8AGxjhm6zlLus5rFlc21ra30AJcyktjU8V1kAAAAASUVORK5CYII=')";
+                  if(currentNextSibling){
+                      currentNextSibling.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAdJJREFUWAntmL9LAzEUx997rT+W+mMUB92c1NFJJ8FZBxV0dixUHQtW90Jxc9KlWP8Nty6iiM5OilNrxaGVyzMnnNZAL82ZO09Ilkvy3sv73PeF5DiAlDUMeLaOecTzWotC8BwBDwXzkZ8ED7XC+Jlp/CfQeuVlBYQ4BYYJ0wXC/AngsLY3XgrzUW24XWnNvHvimoGHVaONsSkUdYQ4sgqDyN0vIgAONsuNUvdcWJ+QeSHMwdQmefYRsNEdZwJFDDjZHfzbvtyUV0CwHBVKlth+uyiMRYaKBch/xahQsQFFhSKQxbZftO8VTZWKVaEAywQqESCT8iUG1C9UokD9QCUOpIP6E6AwKNwoNz15uVoDQ4Qbebs2/aT9NHkVT0v/qcA3G3RsPZlh3mStH58GMtCaMiYQYb4OKEwd3+YUcgrpFNDZiWP+HtIBqHa3qVVF1LFTSFVEHTuFVEXUcQoVYnkSpailUKEUqeOjOIV0BXEK/UOFEJ501EnZ5YH4KP/CYj2phLo8jFgnwkwRADs659jtiO2BbKZI57u5O0m1hojPsSftlUBuG5l/tZrP3X/dYzsnPNp8e10iELPAPNgr1ua8AGxjhm6zlLus5rFlc21ra30AJcyktjU8V1kAAAAASUVORK5CYII=')";
+                  }
               }
 
               allLink[i].onmouseout = function(){
                   let currentNextSibling = this.nextSibling;
-                  if(!currentNextSibling.dataset.ifclick || currentNextSibling.dataset.ifclick == 'false'){
-                      currentNextSibling.style = ''
-                  }else if(currentNextSibling.dataset.ifclick == 'true') {
-                      currentNextSibling.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAc9JREFUWAntmL9LAzEUx9+Lp3Wy6iYOujmpm1pEJ8FZZ/8Ah+rkWLD6J1gQnHTwLxEsFkUU0dnJ4lK1W++Hz1S4coaSNGcuVkiWy8t7L/nkm3C5HECfFYx5xq/ORz6ixgoimwOiXNye9omMnoPC7plu/jeQV62sE9EpT57Q7UAWj4AH4fJOWRYj+jB3fTwT+tEdAA2LThO2LhQLg/DQKAwiJSdCQPveZaWcbJPVGQAuygJ0fYi4x/t8S+bpQDG+gSeTyb+v0y1juJYWiitkvgSFYmqoTIDaU0wLlRlQWqj2pu68HM0vnr5SmSoUT1Bn+awA6SyfNaBeoawC9QJlHUgF9SdAMigcqB5FQGAMjJ/u94D03h60l0KA0/z4mopjvbhi6skP0nk+QY3yM9iYMhoE0lAHJJWHO51CTiGVAio/30PZfg+pAES/29SiIqLtFBIVEW2nkKiIaPehQkSZ3stEBVR2HyqkQrbsdwqpBHcK/UuF6ipqe358Yfyvac3egPKR+KdijTEPS4Dgy0OteFuMDZaYv1B85FffTQ71amXY7oPUgeGGv7T91DnHxm5O8s0gXEWIZuETh7rnGW5FbPGb/UOejV40lraahns3090XcWWqqiCrZ2wAAAAASUVORK5CYII=')";
+                  if(currentNextSibling){
+                      if(!currentNextSibling.dataset.ifclick || currentNextSibling.dataset.ifclick == 'false'){
+                          currentNextSibling.style = ''
+                      }else if(currentNextSibling.dataset.ifclick == 'true') {
+                          currentNextSibling.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAc9JREFUWAntmL9LAzEUx9+Lp3Wy6iYOujmpm1pEJ8FZZ/8Ah+rkWLD6J1gQnHTwLxEsFkUU0dnJ4lK1W++Hz1S4coaSNGcuVkiWy8t7L/nkm3C5HECfFYx5xq/ORz6ixgoimwOiXNye9omMnoPC7plu/jeQV62sE9EpT57Q7UAWj4AH4fJOWRYj+jB3fTwT+tEdAA2LThO2LhQLg/DQKAwiJSdCQPveZaWcbJPVGQAuygJ0fYi4x/t8S+bpQDG+gSeTyb+v0y1juJYWiitkvgSFYmqoTIDaU0wLlRlQWqj2pu68HM0vnr5SmSoUT1Bn+awA6SyfNaBeoawC9QJlHUgF9SdAMigcqB5FQGAMjJ/u94D03h60l0KA0/z4mopjvbhi6skP0nk+QY3yM9iYMhoE0lAHJJWHO51CTiGVAio/30PZfg+pAES/29SiIqLtFBIVEW2nkKiIaPehQkSZ3stEBVR2HyqkQrbsdwqpBHcK/UuF6ipqe358Yfyvac3egPKR+KdijTEPS4Dgy0OteFuMDZaYv1B85FffTQ71amXY7oPUgeGGv7T91DnHxm5O8s0gXEWIZuETh7rnGW5FbPGb/UOejV40lraahns3090XcWWqqiCrZ2wAAAAASUVORK5CYII=')";
+                      }
                   }
-
               }
           }
       }
