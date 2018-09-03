@@ -52,10 +52,10 @@
              <div class="language_name f26 fleft foundation" data-lan="foundation" style="">BTN FOUNDATION</div>
                     <div class="language_name mt20 lh26 f16 fleft foundation_desc" data-lan="foundation_desc" style="">BTN Foundation established in Singapore as a nonprofit organization. BTN's vision is building a high-efficiency operating system for decentralized applications developers.</div>
                     <div class="mt40 linktwo">
-                        <a href="http://218.213.168.147/download/TermsandConditions.pdf" target="_blank"
+                        <a href="//btn.org/download/TermsandConditions.pdf" target="_blank"
                            class="underline cfff">Terms and Conditions</a>
                         <span class="shusort">|</span>
-                        <a href="http://218.213.168.147/download/PrivacyPolicy.pdf" target="_blank"
+                        <a href="//btn.org/download/PrivacyPolicy.pdf" target="_blank"
                            class="ml30 underline cfff">Privay Policy</a>
                     </div>
                 </div>
