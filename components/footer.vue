@@ -40,7 +40,7 @@
                                 </a>
                             </div>
                             <div class="td lh45">
-                                <a href="" target="_blank" class="ml5 va-m cfff">
+                                <a href="https://github.com/bitnew-chain/btn_explorer_ui" target="_blank" class="ml5 va-m cfff">
                                     <img src='img/footer/github.png' class="footnew-icon inline va-m"/>
                                     <span>GitHub</span>
                                 </a>
