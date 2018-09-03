@@ -1,0 +1,126 @@
+blockchain:
+  blockchain: 区块链
+  address: 地址
+  block: 区块信息
+  transaction: 交易
+  contract: 合约
+  token: 代币
+  misc: 杂项
+block:
+  brief:
+    address: 由 {0} 挖出
+    transaction: '用时 {1} 秒，包含 {0} 条交易'
+    reward: 区块奖励 {0} btn
+  list:
+    block_list: 区块列表
+    height: 区块高度
+    time: 时间
+    reward: 块收益
+    mined_by: 播报方
+    size: 区块大小
+    transactions: 交易数
+    difficulty: 难度值
+  summary: 区块信息
+  block_height: 区块高度
+  block_hash: 区块哈希值
+  block_size: 区块大小
+  block_weight: 区块权重
+  bytes: 字节
+  timestamp: 时间戳
+  block_reward: 区块奖励
+  difficulty: 难度值
+  merkle_root: Merkle 树
+  mined_by: 挖矿地址
+  transactions: 交易数
+  previous_block: 上一区块
+  next_block: 下一区块
+transaction:
+  summary: 交易信息
+  confirmations: 个确认
+  unconfirmed: 未确认
+  transaction_id: 交易 ID
+  transaction_hash: 交易哈希值
+  included_in_block: 包含于区块
+  transaction_size: 交易大小
+  bytes: 字节
+  timestamp: 时间戳
+  confirmation: 确认数
+  transaction_fee: 交易手续费
+  coinbase_input: Coinbase 交易输入
+  empty_output: 空输出
+  op_return_output: OP_RETURN 输出
+  unparsed_address: 无法解析的地址
+  fee: 手续费
+  reward: 奖励
+  utxo:
+    type: 类型
+    script: 脚本
+    contract_create: 合约创建
+    contract_call: 合约调用
+  receipt:
+    gas_used: 瓦斯使用量
+    contract_address: 合约地址
+    excepted: 异常信息
+    event_logs: 事件日志
+    address: 地址
+    topics: 主题
+    data: 数据
+address:
+  summary: 账户信息
+  address: 账户地址
+  balance: 账户余额
+  unconfirmed: 未确认
+  staking: 被锁定
+  total_received: 收入总计
+  total_sent: 支出总计
+  token_balances: 代币余额
+  transaction_count: 交易数
+  transaction_list: 交易列表
+contract:
+  summary: 合约信息
+  address: 合约地址
+  owner: 创建人
+  create_transaction: 创建于
+  token:
+    name: 代币名称
+    total_supply: 发行总量
+    tokens: 代币
+    mint_tokens: 铸造代币
+    burn_tokens: 烧毁代币
+  balance: 合约余额
+  total_received: 转入总计
+  total_sent: 转出总计
+  transaction_count: 交易数
+  transaction_list: 交易列表
+misc:
+  rich_list_title: 富豪榜
+  biggest_miners_title: 挖矿榜
+  rank: 排名
+  address: 地址
+  balance: 余额
+  blocks_mined: 挖出块数
+  percentage: 占比
+nav:
+  search: 搜索 区块 / 交易 / 地址 
+pagination:
+  go_to: 前往
+footer:
+  contact_us: 联系我们
+  facebook: 脸书
+  twitter: 推特
+  forum: 论坛
+action:
+  copy: 点击复制
+  view_all: 查看全部
+  go: 前往
+btndescribe:
+  description: BTN概要
+  btnnum: BTN产量
+  blockheight: 区块高度
+  difficulty: 全网难度
+  computing_power: 实时算力
+blockinformation:
+  blockheight: 区块高度
+  relayed_by: 播报方
+  block_time: 时间
+  block_reward: 块收益

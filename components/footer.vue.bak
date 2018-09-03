@@ -1,0 +1,122 @@
+<template>
+  <footer>
+<div class="overflow">
+    <div class="showCont cfff">
+        <div class="table w100 mt50 foot_converse">
+            <div class="td w50">
+                <div class="language_name f26 fleft" data-lan="community">COOPERATERS</div>
+                <div class="mt10 table w100 f16 foot_converse fleft" >
+                    <div class="tr">
+                        <div class="td w33 lh45">
+                            <img src="img/footer/red.jpg" class="icon inline va-m"/>
+                            <a href="https://www.reddit.com/user/bitcoin-new" target="_blank" class="ml5 va-m cfff">Reddit</a>
+                        </div>
+                        <div class="td w33">
+                            <img src="img/footer/twitter.jpg" class="icon inline va-m"/>
+                            <a href="https://twitter.com/BTN_top" target="_blank" class="ml5 va-m cfff">Twitter</a>
+                        </div>
+                        <div class="td">
+                            <img src="img/footer/gitter.jpg" class="icon inline va-m"/>
+                            <a href=" https://gitter.im/BitcoinNew2018/Lobby?utm_source=ios&utm_medium=link&utm_campaign=ios-share-link"
+                               target="_blank" class="ml5 va-m cfff">Gitter</a>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="td lh45">
+                            <img src="img/footer/git.jpg" class="icon inline va-m"/>
+                            <a href="https://github.com/bitcoin-new" target="_blank" class="ml5 va-m cfff">GitHub</a>
+                        </div>
+                        <div class="td">
+                            <img src="img/footer/stack.jpg" class="icon inline va-m"/>
+                            <a href="https://stackoverflow.com/users/9260583/bitcoin-new" target="_blank"
+                               class="ml5 va-m cfff">Stack Exchange</a>
+                        </div>
+                        <div class="td">
+                            <img src="img/footer/meet.png" class="icon inline va-m"/>
+                            <a href="https://www.meetup.com/meetup-group-kiwppHdq/" target="_blank"
+                               class="ml5 va-m cfff">Meetups</a>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="td lh45">
+                            <img src="img/footer/facebook.jpg" class="icon inline va-m"/>
+                            <a href="https://www.facebook.com/profile.php?id=100023469394969" target="_blank"
+                               class="ml5 va-m cfff">Facebook</a>
+                        </div>
+                        <div class="td">
+                            <img src="img/footer/mail.jpg" class="icon inline va-m"/>
+                            <a href="mailto:info@btn.org" class="ml5 va-m cfff">Email us</a>
+                        </div>
+                        <div class="td"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="td w50">
+	     <div class="language_name f26 fleft" data-lan="foundation" style="">BTN FOUNDATION</div>
+                <div class="language_name mt20 lh26 f16 fleft" data-lan="foundation_desc" style="">BTN Foundation established in Singapore as a nonprofit organization. BTN’s vision is building a high-efficiency operating system for decentralized applications developers.</div>
+                <div class="mt40">
+                    <a href="http://218.213.168.147/download/TermsandConditions.pdf" target="_blank"
+                       class="underline cfff">Terms and Conditions</a>
+                    <a href="http://218.213.168.147/download/PrivacyPolicy.pdf" target="_blank"
+                       class="ml30 underline cfff">Privay Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt20 mb50 ta-c f14">Copyright © 2018 btn FOUNDATION All rights reserved</div>
+    </div>
+</div>
+  </footer>
+</template>
+
+<style lang="less" scoped>
+  footer {
+    background-color: #1a191e;
+    text-align: center;
+    color: white;
+  }
+  a:link, a:visited, a:hover, a:active {
+    color: inherit;
+  }
+  .line {
+    width: 2rem;
+    height: 1px;
+    margin: 0.5rem auto;
+    background-color: white;
+  }
+  .links {
+    display: flex;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(242, 242, 242, 0.2);
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      > li {
+        flex: 50%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+    @media (min-width: 769px) {
+      justify-content: space-between;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+  span.fa, span.btn-icon {
+    font-size: 2em;
+    vertical-align: middle;
+  }
+  .foot_converse{
+    color: white;
+    background-color: #1a191e;
+  }
+  .fleft{
+    text-align: left;
+    margin-left: 28%;
+  }
+</style>

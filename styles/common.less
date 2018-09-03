@@ -1,0 +1,70 @@
+@import 'variables.less';
+
+.break-word {
+  word-break: break-all;
+}
+
+/*.monospace {
+  font-family: monospace;
+}*/
+
+.is-btn {
+  border-color: transparent;
+  background-color: @btn;
+  color: white;
+
+  &:hover, .is-hovered {
+    background-color: darken(@btn, 3%);
+    color: white;
+  }
+
+  &:focus, .is-focused {
+    outline: none;
+    color: white;
+    &:not(:active) {
+      box-shadow: 0 0 0 0.125rem fade(@btn, 25%);
+    }
+  }
+
+  &:active, .is-actived {
+    outline: none;
+    background-color: darken(@btn, 5%);
+    color: white;
+  }
+
+  &.is-outlined {
+    border-color: @btn;
+    background-color: transparent;
+    color: @btn;
+    &:hover, .is-hovered {
+      border-color: @btn;
+      background-color: @btn;
+      color: white;
+    }
+  }
+
+  &.is-inverted {
+    background-color: white;
+    color: @btn;
+    &:hover, .is-hovered {
+      background-color: #f2f2f2;
+      color: white;
+    }
+  }
+
+  &.is-outlined.is-inverted {
+    border-color: white;
+    background-color: transparent;
+    color: white;
+    &:hover {
+      background-color: white;
+      color: @btn;
+    }
+  }
+
+  &[disabled] {
+    border-color: transparent;
+    background-color: @btn;
+    box-shadow: none;
+  }
+}
