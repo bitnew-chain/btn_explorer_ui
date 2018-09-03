@@ -4,12 +4,12 @@
   "description": "An open-source frontend for the btnorg API",
   "scripts": {
     "dev": "nuxt",
-    "build": "btnORG_API_BASE_CLIENT=/api/ btnORG_API_BASE_SERVER=http://localhost/api/ btnORG_API_BASE_WS=//explorer.btn.org/ws/ nuxt build",
+    "build": "btnORG_API_BASE_CLIENT=/api/ btnORG_API_BASE_SERVER=http://localhost:3001/btn-api/ btnORG_API_BASE_WS=//explorer.btn.org/ws/ nuxt build",
     "start": "pm2 start process.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bitnew-chain/btn_explorer_ui_pri.git "
+    "url": "git+https://github.com/bitnew-chain/btn_explorer_ui.git "
   },
   "keywords": [
     "btn",
@@ -19,9 +19,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bitnew-chain/btn_explorer_ui_pri/issues"
+    "url": "https://github.com/bitnew-chain/btn_explorer_ui/issues"
   },
-  "homepage": "https://github.com/bitnew-chain/btn_explorer_ui_pri#readme",
+  "homepage": "https://github.com/bitnew-chain/btn_explorer_ui#readme",
   "dependencies": {
     "axios": "^0.17.1",
     "bs58": "^4.0.1",
