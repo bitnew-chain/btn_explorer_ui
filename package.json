@@ -4,7 +4,8 @@
   "description": "An open-source frontend for the btnorg API",
   "scripts": {
     "dev": "nuxt",
-    "build": "btnORG_API_BASE_CLIENT=/api/ btnORG_API_BASE_SERVER=http://localhost:3001/btn-api/ btnORG_API_BASE_WS=//explorer.btn.org/ws/ nuxt build",
+    "build": "btnORG_API_BASE_CLIENT=/api/ btnORG_API_BASE_SERVER=http://localhost:3001/btn-api/ btnORG_API_BASE_WS=//e.btn.org/ws/ nuxt build",
+    "release": "btnORG_API_BASE_CLIENT=/api/ btnORG_API_BASE_SERVER=http://localhost:3001/btn-api/ btnORG_API_BASE_WS=//explorer.btn.org/ws/ nuxt build",
     "start": "pm2 start process.json"
   },
   "repository": {
