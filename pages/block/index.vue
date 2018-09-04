@@ -81,7 +81,9 @@
     data() {
       return {
         list: [],
-        date: ''
+        date: '',
+        //根据这个语言类型更改 切换不可用日期中引文版
+        languageType:''
       }
     },
     async asyncData({query, redirect, error}) {
@@ -106,28 +108,30 @@
     },
     methods: {
       submit() {
-          var currentDate = document.getElementById('datePickers').value;
+        var currentDate = document.getElementById('datePickers').value;
+        const languageTy = document.getElementById('languageType').innerText;
+        this.languageType = languageTy  == '简体中文'? '日期不可用' : 'Time Uncorrect'
         // let date = new Date(this.date);
-          let date  = new Date(currentDate)
+        let date  = new Date(currentDate)
         if (date.toString() === 'Invalid Date') {
-            alert('日期不可用')
+            alert(this.languageType)
           return
         } else if (date.getTime() < Date.parse('2017-09-06')) {
-            alert('日期不可小于' + '2017-09-06')
+            alert(this.languageType)
           return
         } else if (date.getTime() >= Date.now() + 1000 * 60 * 60 * 24) {
-            alert('日期不可大于明天')
+            alert(this.languageType)
           return
         }
         this.$router.push({name: 'block', query: {date: formatTimestamp(date)}})
       }
     },
-      created(){
+    created(){
 
-      },
+    },
     mounted() {
-        var currentDateObj = document.getElementById('datePickers');
-        currentDateObj.value = this.date
+      var currentDateObj = document.getElementById('datePickers');
+      currentDateObj.value = this.date
       this.$websocket.subscribe('block')
       this.$websocket.on('block', block => {
         block.txLength = block.tx.length

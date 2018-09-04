@@ -29,7 +29,7 @@
       </div>
 
       <div class="naver-selectcon">
-        <div @click="ifshowlanguage = !ifshowlanguage" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguage}]"></i>{{typelang}}</div>
+        <div @click="ifshowlanguage = !ifshowlanguage" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguage}]"></i><span id="languageType">{{typelang}}</span></div>
         <ul class="showlanguage" v-if="ifshowlanguage">
           <li @click="changeLan('zh',$event)">简体中文</li>
           <li @click="changeLan('en',$event)">English</li>
