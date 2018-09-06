@@ -1,5 +1,6 @@
 <template>
-  <Icon icon="clipboard" tag="a" class="clipboard" @click="copy($event)" :title="$t('action.copy')" />
+  <!--<Icon icon="clipboard" tag="a" :class="clipboard" @click="copy($event)" :title="$t('action.copy')"/>-->
+  <Icon icon="clipboard" tag="a" class="clipboard" :title="$t('action.copy')" :data-clipboard-text="string" />
 </template>
 
 <script>
@@ -9,32 +10,33 @@
       string: {type: String, required: true}
     },
     methods: {
-      copy(e) {
-        let textarea = document.createElement('textarea')
-        textarea.textContent = this.string
-        textarea.style.position = 'fixed'
-        document.body.appendChild(textarea)
-        textarea.select()
-        try {
-            var eTargrt = e.target;  //点击的目标元素
-            var allClick = document.querySelectorAll('.break-word.monospace')
-            for(let i=0; i<allClick.length;i++) {
-                let currentNextSibling = allClick[i].nextSibling;
-                if(currentNextSibling){
-                    currentNextSibling.style = "";
-                    currentNextSibling.dataset.ifclick = false
-                }
-            }
-            document.execCommand('copy')
-            eTargrt.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAc9JREFUWAntmL9LAzEUx9+Lp3Wy6iYOujmpm1pEJ8FZZ/8Ah+rkWLD6J1gQnHTwLxEsFkUU0dnJ4lK1W++Hz1S4coaSNGcuVkiWy8t7L/nkm3C5HECfFYx5xq/ORz6ixgoimwOiXNye9omMnoPC7plu/jeQV62sE9EpT57Q7UAWj4AH4fJOWRYj+jB3fTwT+tEdAA2LThO2LhQLg/DQKAwiJSdCQPveZaWcbJPVGQAuygJ0fYi4x/t8S+bpQDG+gSeTyb+v0y1juJYWiitkvgSFYmqoTIDaU0wLlRlQWqj2pu68HM0vnr5SmSoUT1Bn+awA6SyfNaBeoawC9QJlHUgF9SdAMigcqB5FQGAMjJ/u94D03h60l0KA0/z4mopjvbhi6skP0nk+QY3yM9iYMhoE0lAHJJWHO51CTiGVAio/30PZfg+pAES/29SiIqLtFBIVEW2nkKiIaPehQkSZ3stEBVR2HyqkQrbsdwqpBHcK/UuF6ipqe358Yfyvac3egPKR+KdijTEPS4Dgy0OteFuMDZaYv1B85FffTQ71amXY7oPUgeGGv7T91DnHxm5O8s0gXEWIZuETh7rnGW5FbPGb/UOejV40lraahns3090XcWWqqiCrZ2wAAAAASUVORK5CYII=')";
-            eTargrt.dataset.ifclick = true
-            // setTimeout(()=>{
-            //     eTargrt.style = ""
-            // },1000)
-        } finally {
-          document.body.removeChild(textarea)
-        }
-      },
+      // copy(e) {
+      //   let textarea = document.createElement('textarea')
+      //   textarea.textContent = this.string
+      //   textarea.style.position = 'fixed'
+      //   document.body.appendChild(textarea)
+      //   textarea.select()
+      //   try {
+      //       var eTargrt = e.target;  //点击的目标元素
+      //       var allClick = document.querySelectorAll('.break-word.monospace')
+      //       for(let i=0; i<allClick.length;i++) {
+      //           let currentNextSibling = allClick[i].nextSibling;
+      //           if(currentNextSibling){
+      //               currentNextSibling.style = "";
+      //               currentNextSibling.dataset.ifclick = false
+      //           }
+      //       }
+      //       document.execCommand('copy')
+      //       eTargrt.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAc9JREFUWAntmL9LAzEUx9+Lp3Wy6iYOujmpm1pEJ8FZZ/8Ah+rkWLD6J1gQnHTwLxEsFkUU0dnJ4lK1W++Hz1S4coaSNGcuVkiWy8t7L/nkm3C5HECfFYx5xq/ORz6ixgoimwOiXNye9omMnoPC7plu/jeQV62sE9EpT57Q7UAWj4AH4fJOWRYj+jB3fTwT+tEdAA2LThO2LhQLg/DQKAwiJSdCQPveZaWcbJPVGQAuygJ0fYi4x/t8S+bpQDG+gSeTyb+v0y1juJYWiitkvgSFYmqoTIDaU0wLlRlQWqj2pu68HM0vnr5SmSoUT1Bn+awA6SyfNaBeoawC9QJlHUgF9SdAMigcqB5FQGAMjJ/u94D03h60l0KA0/z4mopjvbhi6skP0nk+QY3yM9iYMhoE0lAHJJWHO51CTiGVAio/30PZfg+pAES/29SiIqLtFBIVEW2nkKiIaPehQkSZ3stEBVR2HyqkQrbsdwqpBHcK/UuF6ipqe358Yfyvac3egPKR+KdijTEPS4Dgy0OteFuMDZaYv1B85FffTQ71amXY7oPUgeGGv7T91DnHxm5O8s0gXEWIZuETh7rnGW5FbPGb/UOejV40lraahns3090XcWWqqiCrZ2wAAAAASUVORK5CYII=')";
+      //       eTargrt.dataset.ifclick = true;
+      //       return false;
+      //       // setTimeout(()=>{
+      //       //     eTargrt.style = ""
+      //       // },1000)
+      //   } finally {
+      //     document.body.removeChild(textarea)
+      //   }
+      // },
       //鼠标划过变色
       hoverChangeColor(){
           var allLink = document.querySelectorAll('.break-word.monospace')
@@ -61,7 +63,7 @@
     },
     mounted(){
         setTimeout(()=>{
-            this.hoverChangeColor()
+            this.hoverChangeColor();
         },20)
     }
   }
