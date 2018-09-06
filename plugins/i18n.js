@@ -35,13 +35,14 @@ export function getLocale(req) {
 }
 
 export default function({app, req}) {
-  let i18nLocale = getLocale(req)
-  let languages = getLanguages(req)
+  let i18nLocale = getLocale(req)  //'zh' 或者 'en'
+  let languages = getLanguages(req)  //[''zh-cn','zh','en']
   for (let language of languages) {
     if (moment.locale(language) == language.toLowerCase()) {
       break
     }
   }
+
   i18n = app.i18n = new VueI18N({
     locale: i18nLocale,
     fallbackLocale: 'en',
