@@ -1,13 +1,22 @@
 <template>
   <div class="navbar-container">
     <nav class="navbar">
-      <div class="navbar-brand is-size-4">
-        <nuxt-link to="/" class="navbar-item navbar-logo">
-          <div class="logo-image"></div>
-        </nuxt-link>
-        <button type="button" class="button navbar-burger" @click="showMenu = !showMenu">
-          <span></span><span></span><span></span>
-        </button>
+      <div class="navtop">
+        <div class="navbar-brand is-size-4">
+          <nuxt-link to="/" class="navbar-item navbar-logo">
+            <div class="logo-image"></div>
+          </nuxt-link>
+          <button type="button" class="button navbar-burger" @click="showMenu = !showMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+        <div class="naver-selectcon top">
+          <div @click="ifshowlanguage = !ifshowlanguage" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguage}]"></i><span id="languageType">{{typelang}}</span></div>
+          <ul class="showlanguage" v-if="ifshowlanguage">
+            <li @click="changeLan('zh',$event,'top')">简体中文</li>
+            <li @click="changeLan('en',$event,'top')">English</li>
+          </ul>
+        </div>
       </div>
       <div class="navbar-menu" :class="{'is-active': showMenu}">
         <!--<div class="navbar-start is-uppercase">-->
@@ -28,11 +37,11 @@
 
       </div>
 
-      <div class="naver-selectcon">
-        <div @click="ifshowlanguage = !ifshowlanguage" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguage}]"></i><span id="languageType">{{typelang}}</span></div>
-        <ul class="showlanguage" v-if="ifshowlanguage">
-          <li @click="changeLan('zh',$event)">简体中文</li>
-          <li @click="changeLan('en',$event)">English</li>
+      <div class="naver-selectcon bottom">
+        <div @click="ifshowlanguageBottom = !ifshowlanguageBottom" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguageBottom}]"></i><span id="languageType">{{typelang}}</span></div>
+        <ul class="showlanguage" v-if="ifshowlanguageBottom">
+          <li @click="changeLan('zh',$event,'bottom')">简体中文</li>
+          <li @click="changeLan('en',$event,'bottom')">English</li>
         </ul>
       </div>
     </nav>
@@ -42,6 +51,8 @@
 <script>
   import "@/styles/variables.less"
   import {get as btnorgGet} from '@/services/btnorg-api'
+  import moment from 'moment'
+  import ClipboardJS from 'clipboard'
 
   export default {
     data() {
@@ -50,7 +61,9 @@
         searchString: '',
         searching: false,
         typelang:'',
-        ifshowlanguage:false
+        ifshowlanguage:false,
+        ifshowlanguageBottom:false,
+        timeLanuage:'zh-cn'
       }
     },
     async created(){
@@ -58,14 +71,14 @@
         //根据浏览器cookie初始化 select默认选中的值
         const lang = await this.getCookie('lang') || 'zh'
         const showLang = lang == 'zh' ? '简体中文' : 'English'
-        this.typelang = showLang
-
+        this.typelang = showLang;
     },
     mounted(){
       setTimeout(()=>{
           this.renderLan();
           this.showAndHide();
-      },0)
+          this.newClipboard()
+      },20)
 
     },
     methods: {
@@ -104,16 +117,23 @@
         this.showMenu = false
         this.searching = false
       },
-      async changeLan(languagetype,event){
+      async changeLan(languagetype,event,type){
           if(languagetype == 'zh'){
               this.$i18n.locale = 'zh';
-              this.setCookie('lang','zh')
+              this.setCookie('lang','zh');
+              moment.locale('zh-cn')
           }else{
               this.$i18n.locale = 'en';
-              this.setCookie('lang','en')
+              this.setCookie('lang','en');
+              moment.locale('en')
           }
           this.typelang = event.target.innerText
-          this.ifshowlanguage = false
+          if(type == 'top'){
+              this.ifshowlanguage = false
+          }else{
+              this.ifshowlanguageBottom = false
+          }
+
       },
       async renderLan(){
           //根据浏览器cookie显示 中英文
@@ -121,10 +141,12 @@
           if(lang == 'zh'){
               this.$i18n.locale = 'zh';
               this.setCookie('lang','zh')
+              moment.locale('zh-cn')
 
           }else{
               this.$i18n.locale = 'en';
               this.setCookie('lang','en')
+              moment.locale('en')
 
           }
       },
@@ -161,7 +183,33 @@
               }
 
           })
+      },
+      //新的复制
+      newClipboard(){
+          var copyMore = document.getElementsByClassName('fa-clipboard')
+          var clipboardArr= []
+          for(var i=0;i<copyMore.length;i++){
+              var clipboard = new ClipboardJS('.clipboard');
+
+              clipboard.on('success', function(call) {
+                  var eTargrt = call.trigger;  //点击的目标元素
+                  var allClick = document.querySelectorAll('.break-word.monospace')
+                  for(let i=0; i<allClick.length;i++) {
+                      let currentNextSibling = allClick[i].nextSibling;
+                      if(currentNextSibling){
+                          currentNextSibling.style = "";
+                          currentNextSibling.dataset.ifclick = false
+                      }
+                  }
+                  if(eTargrt){
+                      eTargrt.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAAAXNSR0IArs4c6QAAAc9JREFUWAntmL9LAzEUx9+Lp3Wy6iYOujmpm1pEJ8FZZ/8Ah+rkWLD6J1gQnHTwLxEsFkUU0dnJ4lK1W++Hz1S4coaSNGcuVkiWy8t7L/nkm3C5HECfFYx5xq/ORz6ixgoimwOiXNye9omMnoPC7plu/jeQV62sE9EpT57Q7UAWj4AH4fJOWRYj+jB3fTwT+tEdAA2LThO2LhQLg/DQKAwiJSdCQPveZaWcbJPVGQAuygJ0fYi4x/t8S+bpQDG+gSeTyb+v0y1juJYWiitkvgSFYmqoTIDaU0wLlRlQWqj2pu68HM0vnr5SmSoUT1Bn+awA6SyfNaBeoawC9QJlHUgF9SdAMigcqB5FQGAMjJ/u94D03h60l0KA0/z4mopjvbhi6skP0nk+QY3yM9iYMhoE0lAHJJWHO51CTiGVAio/30PZfg+pAES/29SiIqLtFBIVEW2nkKiIaPehQkSZ3stEBVR2HyqkQrbsdwqpBHcK/UuF6ipqe358Yfyvac3egPKR+KdijTEPS4Dgy0OteFuMDZaYv1B85FffTQ71amXY7oPUgeGGv7T91DnHxm5O8s0gXEWIZuETh7rnGW5FbPGb/UOejV40lraahns3090XcWWqqiCrZ2wAAAAASUVORK5CYII=')";
+                      eTargrt.dataset.ifclick = true;
+                  }
+                  clipboard.destroy();
+              });
+          }
       }
+
     }
   }
 </script>
@@ -243,6 +291,7 @@
     min-height: 3.25rem;
     margin-left:54px;
     margin-right:60px;
+    margin-top:6px;
     position: relative;
   }
   .showlanguage{
@@ -270,7 +319,7 @@
     cursor: pointer;
     text-align: left;
     border: 1px solid #D5DBE5;
-    border-radius: 5px;
+    border-radius: 2px;
     width:146px;
     height:40px;
     line-height: 40px;
@@ -323,8 +372,49 @@
   }
   .navbar-menu {
     box-shadow: none;
+    display: block;
   }
   a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active{
     background-color:#fff;
+  }
+  .navbar-burger{
+    display: none;
+  }
+  .bottom,.top{
+    display: none;
+  }
+  .bottom{
+    display: block;
+  }
+  @media screen and (max-width:1024px){
+    .bottom{
+      display: none;
+    }
+    .top{
+      display:block;
+    }
+    .navbar-brand.is-size-4{
+      float:left;
+    }
+    .naver-selectcon.top{
+      float:right;
+    }
+    .navbar-brand, .navbar-tabs{
+      width:10px;
+    }
+    .naver-selectcon{
+      margin-right:16px;
+    }
+    .navtop{
+      height:58px;
+    }
+    .column{
+      padding:0.5rem;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .pr12 {
+      padding-right: 16px;
+    }
   }
 </style>
