@@ -63,7 +63,8 @@
         typelang:'',
         ifshowlanguage:false,
         ifshowlanguageBottom:false,
-        timeLanuage:'zh-cn'
+        timeLanuage:'zh-cn',
+        noSearch:''
       }
     },
     async created(){
@@ -71,7 +72,9 @@
         //根据浏览器cookie初始化 select默认选中的值
         const lang = await this.getCookie('lang') || 'zh'
         const showLang = lang == 'zh' ? '简体中文' : 'English'
+        const searchTip = lang == 'zh' ? '搜索输入不能为空' : 'Search input cannot be empty'
         this.typelang = showLang;
+        this.noSearch = searchTip;
     },
     mounted(){
       setTimeout(()=>{
@@ -85,7 +88,7 @@
       async search() {
         let searchString = this.searchString.trim()
         if (!searchString || this.searching) {
-            alert('搜索地址不能为空')
+            alert(this.noSearch)
           return
         }
         this.searching = true
@@ -121,11 +124,13 @@
           if(languagetype == 'zh'){
               this.$i18n.locale = 'zh';
               this.setCookie('lang','zh');
-              moment.locale('zh-cn')
+              moment.locale('zh-cn');
+              this.noSearch = '搜索输入不能为空';
           }else{
               this.$i18n.locale = 'en';
               this.setCookie('lang','en');
-              moment.locale('en')
+              moment.locale('en');
+              this.noSearch =  'Search input cannot be empty';
           }
           this.typelang = event.target.innerText
           if(type == 'top'){
@@ -187,7 +192,6 @@
       //新的复制
       newClipboard(){
           var copyMore = document.getElementsByClassName('fa-clipboard')
-          var clipboardArr= []
           for(var i=0;i<copyMore.length;i++){
               var clipboard = new ClipboardJS('.clipboard');
 
@@ -411,10 +415,28 @@
     .column{
       padding:0.5rem;
     }
+    .navbar-item.input-item > .input{
+      font-size:14px;
+    }
+    .navbar-item.input-item>.button{
+      height:2.0rem;
+    }
+    .navbar-end .navbar-item button{
+      background-size:14px 14px;
+    }
   }
   @media screen and (max-width: 375px) {
     .pr12 {
       padding-right: 16px;
+    }
+    .navbar-item.input-item > .input{
+      font-size:12px;
+    }
+    .navbar-item.input-item>.button{
+      height:1.7rem;
+    }
+    .navbar-end .navbar-item button{
+      background-size:12px 12px;
     }
   }
 </style>
