@@ -138,6 +138,12 @@
     margin: 10px auto;
     background-color:#fff;
   }
+  ul.introduce-detail{
+    background: #F9FAFC;
+  }
+  ol.introduce-detail{
+    background: #fff;
+  }
   .introduce-detail{
     width:100%;
     display: flex;
@@ -239,7 +245,7 @@
     text-align: center;
     line-height: 30px;
     background: #657EFF;
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 14px;
     color: #FFFFFF;
     cursor: pointer;
