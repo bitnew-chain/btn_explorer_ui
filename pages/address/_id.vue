@@ -67,6 +67,7 @@
       </div>
       <div class="card-body">
         <Pagination v-if="pages > 1" :pages="pages" :currentPage="currentPage" :getLink="getLink" />
+        <nav v-else class="pagination is-centered nopagination" style="height:74px;"></nav>
         <Transaction v-for="transaction in transactions" :key="transaction.txid"
           :transaction="transaction" :highlightAddress="hexAddress"
           @transaction-change="tx => transactionChange(transaction, tx)" />
@@ -321,6 +322,9 @@
     }
     .address-link > .clipboard:hover, .block-link > .clipboard:hover, .transaction-link > .clipboard:hover{
       transform: translateY(-50%) scale(1.0) !important
+    }
+    .nopagination{
+      display: none;
     }
   }
 
