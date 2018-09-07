@@ -426,7 +426,7 @@
     background: #03C592;
   }
   .confirmation-color{
-    border-radius: 5px;
+    border-radius: 2px;
     width:132px;
     height:30px;
     line-height: 30px;
