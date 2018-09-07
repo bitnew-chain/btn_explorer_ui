@@ -225,5 +225,17 @@
       .w33{
           text-align: center;
       }
+      .td.lh45{
+          text-align: center;
+      }
+      .ml5 img{
+          margin-right:0
+      }
+      .ml5{
+          margin-left:0;
+      }
+      .logolink .tr .td > a{
+          font-size: 12px;
+      }
   }
 </style>
