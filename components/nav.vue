@@ -439,4 +439,12 @@
       background-size:12px 12px;
     }
   }
+  .input, .textarea,navbar-item.input-item>.button{
+      padding-top:0;
+      padding-bottom:0;
+  }
+    .navbar-item.input-item>.input,.navbar-item.input-item>.button{
+        height:38px;
+        line-height: 40px;
+    }
 </style>

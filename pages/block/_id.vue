@@ -237,14 +237,14 @@
   }
   .card-header-icon{
     padding-left:3.6rem;
-    padding-right:0.4rem;
+    padding-right:6px;
   }
   .card-header-title{
     font-size: 16px;
     color: #0B224B;
     font-weight:normal;
-    padding-left:0.2rem;
     font-family: @fontfamily;
+    padding-left:0;
   }
   @media screen and (min-width: 1300px) {
     .card-body{
@@ -302,6 +302,8 @@
   }
   .card.section-card{
     box-shadow:0px 0px  10px 3px rgba(140,147,200,0.19);
+    margin-top:0;
+    margin-bottom:20px;
   }
   .card.section-card.transaction-list{
     padding-bottom:0;

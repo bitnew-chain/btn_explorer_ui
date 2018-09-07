@@ -209,7 +209,7 @@
     box-shadow:0px 0px  10px 3px rgba(140,147,200,0.19);
   }
   .card-header{
-    margin:14px auto 0;
+    margin:0 auto;
   }
   .transaction-list{
     margin-top:24px;
@@ -246,7 +246,7 @@
   }
   .card-header-icon{
     padding-left:3.6rem;
-    padding-right:0.4rem;
+    padding-right:0;
   }
   .card-body{
     margin:-98px auto 0;
@@ -265,13 +265,18 @@
     padding-bottom:20px;
   }
   .card.section-card{
-    padding-bottom:30px;
+    margin-top:0;
+    padding-bottom: 40px;
+  }
+  .card.section-card.transaction-list{
+    margin-top:20px;
   }
   .card-header-title{
     font-weight:normal;
     font-size: 16px;
     color: #0B224B;
     font-family:@fontfamily;
+    padding-left:6px;
   }
   .column.info-title{
     font-weight:normal;

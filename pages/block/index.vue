@@ -185,7 +185,7 @@
   }
   .container-blockmore{
     box-shadow:0px 0px  10px 3px rgba(140,147,200,0.19);
-    margin:14px auto;
+    margin:0 auto 14px;
     background-color:#fff;
     padding-bottom:40px;
   }
@@ -217,6 +217,7 @@
     font-size: 16px;
     color: #0B224B;
     font-family:@fontfamily;
+    padding-left:6px;
   }
   form .control > button.is-btn{
     margin-left:0;
