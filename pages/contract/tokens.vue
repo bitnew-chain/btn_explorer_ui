@@ -65,15 +65,42 @@
         }
       }
     },
+    methods:{
+      //鼠标划过不变色
+      nohoverChangeColor(){
+          var allLink = document.querySelectorAll('.break-word.monospace')
+            for(let i=0; i<allLink.length;i++) {
+              allLink[i].onmouseover = function(){
+                  let currentNextSibling = this.nextSibling;
+                  if(currentNextSibling){
+                      currentNextSibling.style.backgroundImage = "";
+                  }
+                }
+
+              allLink[i].onmouseout = function(){
+                  let currentNextSibling = this.nextSibling;
+                  if(currentNextSibling){
+                      if(!currentNextSibling.dataset.ifclick || currentNextSibling.dataset.ifclick == 'false'){
+                          currentNextSibling.style = ''
+                      }else if(currentNextSibling.dataset.ifclick == 'true') {
+                          currentNextSibling.style.backgroundImage = "";
+                      }
+                  }
+              }
+          }
+      }
+    },
     computed: {
       pages() {
         return Math.ceil(this.totalCount / 20)
       }
     },
-    methods: {
-      getLink(page) {
-        return {name: 'contract-tokens', query: {page}}
-      }
+    mounted(){
+      var _this = this;
+      setTimeout(function(){
+          _this.nohoverChangeColor()
+      },20)
+
     },
     async beforeRouteUpdate(to, from, next) {
       let page = Number(to.query.page || 1)
