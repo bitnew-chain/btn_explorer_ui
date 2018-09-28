@@ -333,6 +333,6 @@
   .nuxt-link-exact-active.nuxt-link-active{
     display:inline-block;
     height: 52px;
-    line-height: 52px;
+    line-height: 52px; 
   }
 </style>
