@@ -22,7 +22,7 @@
         <!--<div class="navbar-start is-uppercase">-->
           <!--<AttributeInjector class="navbar-item" @click.native="showMenu = !showMenu">-->
             <!--<nuxt-link to="/block">{{ $t('blockchain.blockchain') }}</nuxt-link>-->
-           <!-- <nuxt-link to="/">{{ $tc('blockchain.token') }}</nuxt-link>-->
+           <!-- <nuxt-link to="/contract/tokens">{{ $tc('blockchain.token') }}</nuxt-link> -->
            <!-- <nuxt-link to="/misc/rich-list">{{ $t('misc.rich_list_title') }}</nuxt-link>-->
           <!--</AttributeInjector>-->
         <!--</div>-->
@@ -36,6 +36,10 @@
         </form>
 
       </div>
+      <!--
+      <div class="navbar-start is-uppercase">
+        <nuxt-link to="/contract/tokens" style="margin-top: 13px;">{{ $tc('blockchain.token') }}</nuxt-link>
+      </div>-->
 
       <div class="naver-selectcon bottom">
         <div @click="ifshowlanguageBottom = !ifshowlanguageBottom" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguageBottom}]"></i><span id="languageType">{{typelang}}</span></div>
@@ -443,8 +447,13 @@
       padding-top:0;
       padding-bottom:0;
   }
-    .navbar-item.input-item>.input,.navbar-item.input-item>.button{
-        height:38px;
-        line-height: 40px;
-    }
+  .navbar-item.input-item>.input,.navbar-item.input-item>.button{
+      height:38px;
+      line-height: 40px;
+  }
+  .nuxt-link-exact-active.nuxt-link-active{
+    display:inline-block;
+    height: 52px;
+    line-height: 52px; 
+  }
 </style>
