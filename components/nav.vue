@@ -27,9 +27,10 @@
         </form>
 
       </div>
+      <!--
       <div class="navbar-start is-uppercase">
         <nuxt-link to="/contract/tokens" style="margin-top: 13px;">{{ $tc('blockchain.token') }}</nuxt-link>
-      </div>
+      </div>-->
 
       <div class="naver-selectcon">
         <div @click="ifshowlanguage = !ifshowlanguage" class="naver-select"><i class="naver-icon" :class="[{'changearrow':ifshowlanguage}]"></i>{{typelang}}</div>
