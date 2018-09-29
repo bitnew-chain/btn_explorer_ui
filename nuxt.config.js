@@ -6,6 +6,10 @@ module.exports = {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no'}
+    ],
+    //新增favicon.ico图标
+    link: [
+        { rel: 'shortcut icon', href: '/img/favicon.ico' }
     ]
   },
   css: [

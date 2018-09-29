@@ -78,7 +78,7 @@
   }
   .background {
     flex: 1;
-    padding: 0.5rem 0 6.0rem;
+    padding: 20px 0 6.0rem;
     background-color: #f5f6f8;
   }
   .header-container-wrap{

@@ -81,7 +81,9 @@
     data() {
       return {
         list: [],
-        date: ''
+        date: '',
+        //根据这个语言类型更改 切换不可用日期中引文版
+        languageType:''
       }
     },
     async asyncData({query, redirect, error}) {
@@ -106,28 +108,30 @@
     },
     methods: {
       submit() {
-          var currentDate = document.getElementById('datePickers').value;
+        var currentDate = document.getElementById('datePickers').value;
+        const languageTy = document.getElementById('languageType').innerText;
+        this.languageType = languageTy  == '简体中文'? '日期不可用' : 'Time Uncorrect'
         // let date = new Date(this.date);
-          let date  = new Date(currentDate)
+        let date  = new Date(currentDate)
         if (date.toString() === 'Invalid Date') {
-            alert('日期不可用')
+            alert(this.languageType)
           return
         } else if (date.getTime() < Date.parse('2017-09-06')) {
-            alert('日期不可小于' + '2017-09-06')
+            alert(this.languageType)
           return
         } else if (date.getTime() >= Date.now() + 1000 * 60 * 60 * 24) {
-            alert('日期不可大于明天')
+            alert(this.languageType)
           return
         }
         this.$router.push({name: 'block', query: {date: formatTimestamp(date)}})
       }
     },
-      created(){
+    created(){
 
-      },
+    },
     mounted() {
-        var currentDateObj = document.getElementById('datePickers');
-        currentDateObj.value = this.date
+      var currentDateObj = document.getElementById('datePickers');
+      currentDateObj.value = this.date
       this.$websocket.subscribe('block')
       this.$websocket.on('block', block => {
         block.txLength = block.tx.length
@@ -181,7 +185,7 @@
   }
   .container-blockmore{
     box-shadow:0px 0px  10px 3px rgba(140,147,200,0.19);
-    margin:14px auto;
+    margin:0 auto 14px;
     background-color:#fff;
     padding-bottom:40px;
   }
@@ -198,7 +202,7 @@
     width:16px;
     height: 16px;
     content: '';
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAMhJREFUOBFjDEhoEGBgYDAAYqxAjE3yKEji1a/n1lgVQAQvsABpg3///+7Hpej977diIDl8apgYmR2ZcBlAqvgwNggU2ASBIKvwB2CsOeJRCI41PPIQqVmz0n8DWQfwKSTKRYHZbcJ/v36/jssgRkbmAJb/jAy/gApe41L0h4vhH8s3Bqa//xlEcalhZGBgA2LCIDSxTfTnv++vcKkEJUgWYrIIMHXjMgMuTnQWgevAwRjGKZtqXgMF9gVQ9OEIQwZQ9gDJEcoiAMiNPo6trFGiAAAAAElFTkSuQmCC) no-repeat center;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAAXNSR0IArs4c6QAAAUhJREFUaAXtmdENgzAMRB3UARiFDdoRGIERmKBCnaAjMAIrdANGYYJQqBorEv2IkB1MdfwQUDjb9yAiCRGOczngQrp1c396oipcS50LKtqh78ZYr266ypN/xvck2gXROPSPdtW6BMFPUfN8DddiZ0flD62SFGJ5x5xoKfI/DxR2Nq4gBmJGHMCraAREchoglmyVkY4gZgREchoglmyVkY48bcmcz0TOvaRjLq8fz/sOKew78bxJFxbr4RuL3ThDG8TOQCnO8ZDBI+sqVVxthjZWqfaajMFjr3NHPceDx/o7Eq+kCiY0CWolS3FhYc07+UnjHfGNGQe0SQ/ENpYYv8GDR86NvxyecGGZN/7Ua8M3pm6xcAAQEzZUXQ7E1C0WDgBiwoaqy4GYusXCAUBM2FB1ORBTt1g4AE9bFnQ5V6nUN/6EfYKcugNvjDI3umPcgr0AAAAASUVORK5CYII=) no-repeat center;
     background-size:100%  100%;
   }
   .fa-cubes:before{
@@ -213,6 +217,7 @@
     font-size: 16px;
     color: #0B224B;
     font-family:@fontfamily;
+    padding-left:6px;
   }
   form .control > button.is-btn{
     margin-left:0;

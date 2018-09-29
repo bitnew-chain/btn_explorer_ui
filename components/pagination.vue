@@ -120,6 +120,17 @@
 
 <style lang="less" scoped>
   @fontfamily:'黑体',PingFangSC-Regular,pingfangsc;
+  input{
+    outline: none;
+    border:none;
+    -webkit-appearance: none;
+    box-shadow: none;
+    &:focus {
+      outline: none;
+    }
+    border: 1px solid #D5DBE5;
+    border-radius: 2px;
+  }
   .pagination-form {
     margin-left: 2em;
     .label {

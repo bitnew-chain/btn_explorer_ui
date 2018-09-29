@@ -13,13 +13,13 @@
                                     <span>BeeChat</span>
                                 </a>
                             </div>
-                            <div class="td w33">
+                            <div class="td w33 lh45">
                                 <a href="https://twitter.com/BTN_top" target="_blank" class="ml5 va-m cfff">
                                     <img src="img/footer/twitternew.png" class="footnew-icon inline va-m"/>
                                     <span>Twitter</span>
                                 </a>
                             </div>
-                            <div class="td">
+                            <div class="td lh45">
                                 <a href="https://beechat.io/BitnewChain" target="_blank" class="ml5 va-m cfff">
                                     <img src="img/footer/telegramnew.png" class="footnew-icon inline va-m"/>
                                     <span>Telegram</span>
@@ -27,13 +27,13 @@
                             </div>
                         </div>
                         <div class="tr">
-                            <div class="td lh45">
+                            <div class="td w33 lh45">
                                 <a href="https://www.facebook.com/profile.php?id=100023469394969" target="_blank" class="ml5 va-m cfff">
                                     <img src="img/footer/facebooknew.png" class="footnew-icon inline va-m"/>
                                     <span>Facebook</span>
                                 </a>
                             </div>
-                            <div class="td">
+                            <div class="td w33 lh45">
                                 <a href="mailto:info@btn.org" class="ml5 va-m cfff">
                                     <img src="img/footer/mailnew.png" class="footnew-icon inline va-m"/>
                                     <span>Email</span>
@@ -48,8 +48,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="td w50">
-             <div class="language_name f26 fleft foundation" data-lan="foundation" style="">BTN FOUNDATION</div>
+                <div class="td w50 rightw50">
+                    <div class="language_name f26 fleft foundation" data-lan="foundation" style="">BTN FOUNDATION</div>
                     <div class="language_name mt20 lh26 f16 fleft foundation_desc" data-lan="foundation_desc" style="">BTN Foundation established in Singapore as a nonprofit organization. BTN's vision is building a high-efficiency operating system for decentralized applications developers.</div>
                     <div class="mt40 linktwo">
                         <a href="https://btn.org/download/TermsandConditions.pdf" target="_blank"
@@ -150,6 +150,7 @@
     }
   .w33{
       width:20%;
+      text-align: left;
   }
   .language_name.mt20.lh26.f16.fleft.foundation_desc{
       padding-right: 54px;
@@ -210,4 +211,31 @@
             opacity:1;
         }
     }
+  @media screen and (max-width:1024px){
+      .w100 {
+          width: 81%;
+      }
+      .rightw50{
+          position: relative;
+          left:30px;
+      }
+      .language_name.mt20.lh26.f16.fleft.foundation_desc{
+          padding-right:0;
+      }
+      .w33{
+          text-align: center;
+      }
+      .td.lh45{
+          text-align: center;
+      }
+      .ml5 img{
+          margin-right:0
+      }
+      .ml5{
+          margin-left:0;
+      }
+      .logolink .tr .td > a{
+          font-size: 12px;
+      }
+  }
 </style>
