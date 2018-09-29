@@ -13,7 +13,7 @@
         <!--<div class="navbar-start is-uppercase">-->
           <!--<AttributeInjector class="navbar-item" @click.native="showMenu = !showMenu">-->
             <!--<nuxt-link to="/block">{{ $t('blockchain.blockchain') }}</nuxt-link>-->
-           <!-- <nuxt-link to="/">{{ $tc('blockchain.token') }}</nuxt-link>-->
+           <!-- <nuxt-link to="/contract/tokens">{{ $tc('blockchain.token') }}</nuxt-link> -->
            <!-- <nuxt-link to="/misc/rich-list">{{ $t('misc.rich_list_title') }}</nuxt-link>-->
           <!--</AttributeInjector>-->
         <!--</div>-->
@@ -26,6 +26,9 @@
           </div>
         </form>
 
+      </div>
+      <div class="navbar-start is-uppercase">
+        <nuxt-link to="/contract/tokens" style="margin-top: 13px;">{{ $tc('blockchain.token') }}</nuxt-link>
       </div>
 
       <div class="naver-selectcon">
@@ -326,5 +329,10 @@
   }
   a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active{
     background-color:#fff;
+  }
+  .nuxt-link-exact-active.nuxt-link-active{
+    display:inline-block;
+    height: 52px;
+    line-height: 52px; 
   }
 </style>
