@@ -10,13 +10,13 @@
         </button>
       </div>
       <div class="navbar-menu" :class="{'is-active': showMenu}">
-        <div class="navbar-start is-uppercase">
+        <!--<div class="navbar-start is-uppercase">-->
           <!--<AttributeInjector class="navbar-item" @click.native="showMenu = !showMenu">-->
             <!--<nuxt-link to="/block">{{ $t('blockchain.blockchain') }}</nuxt-link>-->
            <!-- <nuxt-link to="/contract/tokens">{{ $tc('blockchain.token') }}</nuxt-link> -->
            <!-- <nuxt-link to="/misc/rich-list">{{ $t('misc.rich_list_title') }}</nuxt-link>-->
           <!--</AttributeInjector>-->
-        </div>
+        <!--</div>-->
         <form class="navbar-end" @submit.prevent="search">
           <div class="navbar-item input-item">
             <input type="text" class="input" v-model="searchString" :placeholder="$t('nav.search')">
@@ -28,7 +28,7 @@
 
       </div>
       <div class="navbar-start is-uppercase">
-        <nuxt-link to="/contract/tokens">{{ $tc('blockchain.token') }}</nuxt-link>
+        <nuxt-link to="/contract/tokens" style="margin-top: 13px;">{{ $tc('blockchain.token') }}</nuxt-link>
       </div>
 
       <div class="naver-selectcon">

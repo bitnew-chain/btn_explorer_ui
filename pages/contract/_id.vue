@@ -43,15 +43,15 @@
         </template>
         <div class="columns">
           <div class="column info-title">{{ $t('contract.balance') }}</div>
-          <div class="column info-value monospace">{{ balance | qtum }} BTN</div>
+          <div class="column info-value monospace">{{ balance | btn }} BTN</div>
         </div>
         <div class="columns">
           <div class="column info-title">{{ $t('contract.total_received') }}</div>
-          <div class="column info-value monospace">{{ totalReceived | qtum }} BTN</div>
+          <div class="column info-value monospace">{{ totalReceived | btn }} BTN</div>
         </div>
         <div class="columns">
           <div class="column info-title">{{ $t('contract.total_sent') }}</div>
-          <div class="column info-value monospace">{{ totalSent | qtum }} BTN</div>
+          <div class="column info-value monospace">{{ totalSent | btn }} BTN</div>
         </div>
         <div class="columns" v-if="tokenBalances.length">
           <div class="column info-title">{{ $t('address.token_balances') }}</div>
